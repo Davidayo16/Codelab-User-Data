@@ -1,13 +1,167 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,800;1,600&display=swap");
+:root {
+  --color-primary: rgb(175, 201, 206);
+  --doc-height: 100%;
+  --doc-width: 100%;
+  --color-danger: #ecb7bc;
+  --color-background: #f6f6f9;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  width: var(--doc-width);
+  height: var(--doc-height);
+  font-size: 0.85rem;
+  background: var(--color-background);
+  transition: 0.5s ease;
+  overflow-x: hidden;
+}
+.App {
+  padding: 1rem 1rem;
+}
+/****USER CARD */
+.user__card__container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  margin-top: 1rem;
+}
+.user__card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.user__card {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.user__info {
+  padding: 2px 10px;
+  margin-top: 4px;
+}
+.user__name {
+  color: var(--color-primary);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/**** NOT FOUND ****/
+.not__found {
+  margin-top: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-danger);
+}
+.not__found p {
+  margin: 0;
+  padding: 0;
+}
+
+/***** SEARCH INPUT *****/
+.search__input {
+  padding: 0.5rem 0.5rem;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+.search__input:focus {
+  box-shadow: 0 0 2px 2px rgb(73, 147, 160);
+  outline: none;
+  border: none;
+}
+
+/***** FILTERS ****/
+.filters {
+  margin-top: 1rem;
+}
+.filter__container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.filters select {
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  background-color: rgb(233, 233, 233);
+  border: none;
+  border-radius: 0.4rem;
+}
+.filters select:focus {
+  box-shadow: 0 0 2px 2px rgb(73, 147, 160);
+}
+.filter__container label {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.filter__head {
+  display: flex;
+  align-items: center;
+  /* border: 2px solid green; */
+  margin: 1rem 0;
+}
+.filter__head h4 {
+  padding: 0;
+  margin: 0;
+}
+
+/*****RESET BUTTON ******/
+.reset__button button {
+  background-color: #e20f0f;
+  color: #fff;
+  border: none;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.reset__button button:hover {
+  background-color: #e05b5b;
+  transition: 0.4s ease-in-out;
+}
+.reset__button button:disabled {
+  background-color: #c3c0c9;
+  cursor: no-drop;
+}
+
+@media (min-width: 400px) {
+  .user__card__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .App {
+    padding: 1rem 1rem;
+  }
+}
+@media (max-width: 300px) {
+  .filters {
+    overflow-x: scroll;
+  }
+}
+@media (min-width: 768px) {
+  .user__card__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .App {
+    padding: 1rem 2rem;
+  }
+}
+@media (min-width: 968px) {
+  .user__card__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .App {
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .user__card__container {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
